@@ -1,4 +1,4 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-import { helloWord } from "./funtions";
-(0, helloWord)();
+var funtions_1 = require("./funtions");
+(0, funtions_1.helloWord)();
