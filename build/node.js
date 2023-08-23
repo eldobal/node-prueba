@@ -1,7 +1,23 @@
 "use strict";
 var http = require('http');
+var dt = require('./myfirstmodule');
+var fs = require('fs');
+var url = require('url');
+var uc = require('upper-case');
 http.createServer(function (req, res) {
     req;
-    res.writeHead(200, { 'Content-Type': 'text/html' });
-    res.end('Hola Vammmne El amormmmmm de mi vimmmmdaaa!!! <3<3<3<3<3<3 xxxxxx');
+    var q = url.parse(req.url, true);
+    var filename = "." + q.pathname;
+    fs.readFile(filename, function (err, data) {
+        data;
+        if (err) {
+            res.writeHead(404, { 'Content-Type': 'text/html' });
+            return res.end("404 Not Found");
+        }
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.write(data);
+        console.log(uc.upperCase("Hello World!"));
+        console.log(uc.upperCase("Upper Case inicializado!"));
+        return res.end();
+    });
 }).listen(8080);
