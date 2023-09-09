@@ -1,8 +1,9 @@
+var sum = require('build/myfirstecmmodule.js');
 var http = require('http');
-var dt = require('./myfirstmodule');
 var fs = require('fs');
 var url = require('url');
 var uc = require('upper-case');
+
 
 http.createServer(function (req?: any, res?:any) {
   req;
@@ -17,7 +18,8 @@ http.createServer(function (req?: any, res?:any) {
     }  
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(data);
-    console.log(uc.upperCase("Hello World!"));
+
+    console.log(sum(4,5));
     console.log(uc.upperCase("Upper Case inicializado!"));
     return res.end();
     
